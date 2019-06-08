@@ -1,0 +1,19 @@
+# Build directories
+build/
+
+# Dependency directories
+node_modules/
+
+# Windows thumbs cache
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows desktop cfg
+[Dd]esktop.ini
+
+# Workspace files are user-specific
+.vscode/
