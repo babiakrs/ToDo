@@ -1,27 +1,28 @@
-const initialState = {
-  search: {
-    query: '',
-    filter: true
-  },
-  tasks: []
-};
+import {
+  TODO_ADD,
+  TODO_SEARCH,
+  TODO_DONE,
+  TODO_REMOVE,
+  TODO_FROM_STORAGE
+} from 'Actions/types.js';
+import initialState from './initial-state.js';
 
-export const todo = (state = initialState, action) => {
+export const todoReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'TODO_ADD': {
+    case TODO_ADD: {
       return {
         ...state,
         tasks: [
           ...state.tasks,
           {
-            id: action.id,
             title: action.title,
             done: false
           }
         ]
       };
     }
-    case 'TODO_SEARCH': {
+
+    case TODO_SEARCH: {
       return {
         ...state,
         search: {
@@ -30,19 +31,30 @@ export const todo = (state = initialState, action) => {
         }
       };
     }
-    case 'TODO_DONE': {
+
+    case TODO_DONE: {
       return {
         ...state,
-        tasks: state.tasks.map((t) => (t.id === action.id) ? { ...t, done: !t.done } : t)
+        tasks: state.tasks.map((t, idx) => (idx === action.id) ? { ...t, done: !t.done } : t)
       };
     }
-    case 'TODO_REMOVE': {
+
+    case TODO_REMOVE: {
       return {
         ...state,
-        tasks: state.tasks.filter((t) => (t.id !== action.id))
+        tasks: state.tasks.filter((_, idx) => (idx !== action.id))
       };
     }
-    default:
+
+    case TODO_FROM_STORAGE: {
+      return {
+        ...state,
+        tasks: action.tasks
+      };
+    }
+
+    default: {
       return state;
+    }
   }
-} 
+}
