@@ -33,7 +33,7 @@ TodoList.propTypes = {
 
 
 const visibleTasks = (tasks, query, filter) => {
-  return tasks
+  return tasks === null ? [] : tasks
     .filter((t) => filter || !t.done)
     .filter((t) => t.title.toLowerCase().indexOf(query.toLowerCase()) !== -1);
 }
