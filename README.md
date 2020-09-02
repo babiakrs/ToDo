@@ -1,4 +1,4 @@
-Todo application | [Demo](https://uqm4b.codesandbox.io/)
+Todo application | [Demo](https://almost-infinity.github.io/projects/ToDo/)
 -
 
 Stack:
