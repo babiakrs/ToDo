@@ -1,4 +1,4 @@
-Todo application | [Demo](https://almost-infinity.github.io/projects/ToDo/)
+Todo application | [Demo](https://todo-app-fc640.web.app/)
 -
 
 Stack:
