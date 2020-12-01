@@ -10,16 +10,12 @@ import initialState from './initial-state.js';
 export const todoReducer = (state = initialState, action) => {
   switch(action.type) {
     case TODO_ADD: {
-      return {
-        ...state,
-        tasks: [
-          ...state.tasks,
-          {
-            title: action.title,
-            done: false
-          }
-        ]
-      };
+      return Object.assign({}, state, {
+        tasks: state.tasks.concat([{
+          title: action.title,
+          done: false
+        }])
+      })
     }
 
     case TODO_SEARCH: {
@@ -49,7 +45,7 @@ export const todoReducer = (state = initialState, action) => {
     case TODO_FROM_STORAGE: {
       return {
         ...state,
-        tasks: action.tasks
+        tasks: action.tasks || []
       };
     }
 
