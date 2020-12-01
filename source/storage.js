@@ -34,7 +34,8 @@ export default class JSONStorage {
 	static pull() {
 		if ('localStorage' in window) {
 			try {
-				this._cache = JSON.parse(localStorage.getItem(this._activeField));
+				let data = localStorage.getItem(this._activeField);
+				this._cache = data ? JSON.parse(data) : [];
 			}
 			catch (e) {
 				console.error('Couldn\'t pull data from localStorage!', e);
